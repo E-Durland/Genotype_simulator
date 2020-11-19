@@ -432,7 +432,7 @@ ggplot(m_sims,aes(r_MAF,p*100))+
   theme_minimal()
 ```
 
-![](Genotype_simulator_files/figure-markdown_github/Simulator_output.png)
+![](Genotype_simulator/Simulator_output.png)
 
 We can see that even unbalanced factorial crosses *tend* to fall on HWE
 expectations but there are numerous simulations that are significantly
