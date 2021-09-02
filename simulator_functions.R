@@ -84,11 +84,13 @@ for(a in 1:50){
 }
 
 #To plot your simulations:
-library(reshape2)
+library(tidyr)
 library(ggplot2)
-sims<-as.data.frame(sims)
-m_sims<-melt(sims,id.vars=c("r_MAF"),variable.name = "gtype",value.name = "p")
-
+m_sims<-pivot_longer(sims,
+                     cols = p_AA:p_BB,
+                     names_to ="gtype",
+                     values_to =  "p")%>%
+  as.data.frame()
 ggplot(m_sims,aes(r_MAF,p*100))+
   geom_point(aes(color=gtype),size=0.5)+
   stat_smooth(aes(color=gtype))+
